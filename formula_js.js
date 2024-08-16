@@ -25,17 +25,17 @@ function evaluatePartRemark(PartRemark2, PartRef, degem, PartMat, PartQty) {
   } else if ((PartRef.includes("מדפים") || PartRef.includes("מדף")) && [1, 2, 3].includes(degem)) {
     return "&_&";
   } else if (
-    (degem === 10 || PartRemark2.includes("מיטות") || PartRef.includes("ראש") || (PartRef.includes("חזית") && !PartRef.includes("מגירה"))) &&
+    (degem === 10 || PartRemark2.includes("מיטות") || PartRef.includes("ראש")) &&
     !["מגירה", "מגרות", "מגירות", "צד_מג", "מג", "מג34", "מג35", "מג40", "מ_תחתונה", "צוקל", "מראה"].includes(PartRef)
   ) {
     return "#";
-  } else if (PartRef.includes("מראה") && (PartRemark2.includes("מיטות") || degem === 10)) {
+  } else if (PartRef.includes("מראה") && degem === 9) {
     return "##";
   } else if (PartRef.includes("צוקל") && ![5, 7, 8, 9].includes(degem)) {
     return "###";
   } else if (
     PartRemark2.includes("מגרות") ||
-    (PartRef.includes("מגירה") && !PartRef.includes("חזית")) ||
+    PartRef.includes("מגירה") ||
     PartRef.includes("מגרות") ||
     PartRef.includes("מגירות") ||
     PartRef === "צד_מג" ||
